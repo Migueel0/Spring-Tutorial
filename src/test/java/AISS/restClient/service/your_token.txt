@@ -1,0 +1,5 @@
+***THIS FILE MUST CONTAIN ONLY ONE LINE COMPOSED BY YOUR TOKEN***
+
+1- Paste here your github personal token
+2- Remove these indications
+3- Rename this file to token.txt

@@ -29,17 +29,20 @@ class CommitServiceTest {
     @DisplayName("Get all commits with personal token authentication")
 
     void findAllCommits(){
-
-        String token = "";
-        Scanner scanner = new Scanner("token.txt");
-        while (scanner.hasNextLine()) {
-            token += scanner.nextLine();
+        try {
+            File file = new File("src/test/java/AISS/restClient/service/token.txt");
+            String token = "";
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                token += scanner.nextLine();
+            }
+            scanner.close();
+            List<Commit> commits = service.findAllCommits(token, "Mastercard", "client-encryption-java");
+            assertTrue(!commits.isEmpty());
+            System.out.println(commits);
+        }catch (FileNotFoundException e) {
+            System.out.println("File not found: " + e.getMessage());
         }
-        scanner.close();
-        List<Commit> commits = service.findAllCommits(token,"Mastercard","client-encryption-java");
-        assertTrue(!commits.isEmpty());
-        System.out.println(commits);
-
     }
 
 }

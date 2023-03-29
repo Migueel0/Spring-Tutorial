@@ -26,7 +26,7 @@ public class CommitService {
     public List<Commit> findAllCommits(String token, String owner, String repo){
         String uri = gitUri + "/" + owner + "/" + repo + "/commits";
         HttpHeaders headers =  new HttpHeaders();
-        headers.set("Authorization", "Bearer" + token);
+        headers.set("Authorization", "Bearer " + token);
         HttpEntity<Commit[]> request = new HttpEntity<>(null, headers);
         ResponseEntity<Commit[]> response =  restTemplate.exchange(uri, HttpMethod.GET, request, Commit[].class);
         return Arrays.stream(response.getBody()).toList();

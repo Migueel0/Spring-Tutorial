@@ -1,5 +1,5 @@
 
-package AISS.restClient.model;
+package AISS.restClient.model.users;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

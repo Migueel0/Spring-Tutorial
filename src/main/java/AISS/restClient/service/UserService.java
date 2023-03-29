@@ -1,7 +1,7 @@
 package AISS.restClient.service;
 
-import AISS.restClient.model.User;
-import AISS.restClient.model.UserSearch;
+import AISS.restClient.model.users.User;
+import AISS.restClient.model.users.UserSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;

@@ -13,7 +13,7 @@ The project is structured as follows:
 
 
 ## Model Classes
-The model classes are located in the AISS.restClient.model package. They are created using Plain Old Java Objects (POJOs) and represent the data structures used by the APIs being consumed.
+The model classes are located in the AISS.restClient.model package. They are created using Plain Old Java Objects (POJOs) made whit [jsonschema2pojo](https://www.jsonschema2pojo.org/) and represent the data structures used by the APIs being consumed.
 
 - `Users package`: Represents a user object returned by the Regres API.
 - `Commits package`: Represents a commmit object returned by the Github API.

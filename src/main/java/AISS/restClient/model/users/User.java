@@ -22,6 +22,11 @@ public class User {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
+    public User(String firstName, String lastName) {
+        this.firstName =  firstName;
+        this.lastName = lastName;
+    }
+
     @JsonProperty("id")
     public Integer getId() {
         return id;

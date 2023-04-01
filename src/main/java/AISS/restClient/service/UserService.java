@@ -14,20 +14,37 @@ public class UserService {
     RestTemplate restTemplate;
     final String usersUri = "https://reqres.in/api/users";
 
-    public List<User> findAllUsers(){
+    public List<User> findAllUsers() {
         List<User> users = null;
-        UserSearch userSearch = restTemplate.getForObject(usersUri,UserSearch.class);
+        UserSearch userSearch = restTemplate.getForObject(usersUri, UserSearch.class);
         users = userSearch.getData();
         return users;
     }
 
-    public User findUser(Integer id){
+    public User findUser(Integer id) {
         List<User> users = null;
         UserSearch userSearch = restTemplate.getForObject(usersUri, UserSearch.class);
-        users  = userSearch.getData();
-        User user =  users.stream().filter(x -> x.getId() == id).toList().get(0);
+        users = userSearch.getData();
+        User user = users.stream().filter(x -> x.getId() == id).toList().get(0);
         return user;
     }
+
+    public User postUser(String firstName, String lastName) {
+        User user = new User(firstName, lastName);
+        User newUser = restTemplate.postForObject(usersUri, user, User.class);
+        return newUser;
+    }
+
+
+    public void putUser(Integer id, String firstName, String lastName) {
+        User user = new User(firstName, lastName);
+        restTemplate.put(usersUri + "/" + id, user, User.class);
+    }
+
+    public void deleteUser(Integer id){
+        restTemplate.delete(usersUri + "/" + id);
+    }
+
 
 
 }

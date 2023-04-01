@@ -29,4 +29,27 @@ class UserServiceTest {
         User user = service.findUser(2);
         System.out.println(user);
     }
+
+    @Test
+    @DisplayName("Create a new user")
+    void postUser(){
+        User user = service.postUser("Miguel","Galan");
+        System.out.println(user);
+    }
+
+    @Test
+    @DisplayName("Update a user ")
+    void putUser(){
+        service.putUser(2,"Miguel","Galan");
+    }
+
+    @Test
+    @DisplayName("Delete user")
+    void deleteUser(){
+        service.deleteUser(2);
+    }
+
+
+
+
 }

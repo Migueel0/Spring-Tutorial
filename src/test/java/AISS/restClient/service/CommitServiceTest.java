@@ -37,9 +37,14 @@ class CommitServiceTest {
                 token += scanner.nextLine();
             }
             scanner.close();
-            List<Commit> commits = service.findAllCommits(token, "Mastercard", "client-encryption-java");
+            List<Commit[]> commits = service.findAllCommits(token, "Mastercard", "client-encryption-java");
             assertTrue(!commits.isEmpty());
-            System.out.println(commits);
+            int i = 1;
+            for(Commit[] commit : commits){
+                System.out.println("Page " + i + ":");
+                System.out.println(commit);
+                i++;
+            }
         }catch (FileNotFoundException e) {
             System.out.println("File not found: " + e.getMessage());
         }
